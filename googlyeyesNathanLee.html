@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <title>CSS Sprite Animation</title>
+  <style>
+	#faceContainer {
+		width:500px;
+		height:750px;
+		background-image: url("happily-surprised.jpg");
+		}
+	#spriteContainer {
+		width:265px;
+		height:270px;
+		position: relative;
+		opacity: 1;
+		top: 160px;
+		left: 10px;
+		display:block;
+		background-image: url("sprites_blue.png");
+		animation: sprite .3s steps(24) infinite;
+	}
+	#spriteContainer2 {
+		width:265px;
+		height:270px;
+		position: relative;
+		top: -750px;
+		left: 225px;
+		display:block;
+		background-image: url("sprites_blue.png");
+		animation: sprite .3s steps(24) infinite;
+	}
+	@keyframes sprite {
+	100% {
+		background-position: -7224px;
+		}
+	}
+  </style>
+</head>
+ 
+<body>
+  <!--<div id=spriteContainer></div>-->
+  <div id=faceContainer>
+	<div id =spriteContainer>
+	<canvas id = "myCanvas" width = "500px" height = "750px"></canvas>
+		<div id =spriteContainer2>
+		  
+		</div>
+	</div>
+  </div>
+  <script src= "/js/prefixfree.min.js"></script>
+
+  <script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.font = "50px Verdana";
+  var gradient = ctx.createLinearGradient(0,0,canvas.width,0);
+  gradient.addColorStop("0", "magenta");
+  gradient.addColorStop("0.5","blue");
+  gradient.addColorStop("1.0","red");
+  ctx.fillStyle = gradient;
+  ctx.fillText("CRAZY ABOUT YOU!!",0,590);
+  
+
+  </script>
+</body>
+ 
+</html>
